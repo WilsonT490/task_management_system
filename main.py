@@ -1,4 +1,14 @@
-from task_manager.task_utils import add_task, mark_task_as_complete, view_pending_tasks, calculate_progress
+import os
+import sys
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+if script_dir not in sys.path:
+    sys.path.insert(0, script_dir)
+
+try:
+    from task_manager import add_task, mark_task_as_complete, view_pending_tasks, calculate_progress
+except ImportError:
+    from task_manager.task_utils import add_task, mark_task_as_complete, view_pending_tasks, calculate_progress
 
 def main():
     while True:
