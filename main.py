@@ -7,7 +7,8 @@ from task_manager.task_utils import (
     add_task,
     mark_task_complete,
     view_pending_tasks,
-    track_progress
+    track_progress,
+    calculate_progress
 )
 
 
@@ -31,9 +32,10 @@ def main():
         choice = input("Enter your choice (1-5): ").strip()
 
         if choice == "1":
-            task_name = input("Enter task name: ").strip()
-            priority = input("Enter priority (low, medium, high): ").strip()
-            tasks = add_task(tasks, task_name, priority)
+            title = input("Enter task name: ").strip()
+            description = input("Enter task description: ").strip()
+            due_date = input("Enter due date (YYYY-MM-DD): ").strip()
+            tasks = add_task(tasks, title, description, due_date)
 
         elif choice == "2":
             view_pending_tasks(tasks)

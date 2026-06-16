@@ -6,7 +6,7 @@ validation.py - Input validation functions for the Task Management System.
 def validate_task_name(task_name):
     """
     Validate the task name input.
-    Returns True if valid, False otherwise.
+    Returns True if valid, raises ValueError otherwise.
     """
     if len(task_name) == 0:
         raise ValueError("Task name cannot be empty.")
@@ -18,7 +18,7 @@ def validate_task_name(task_name):
 def validate_task_index(index, tasks):
     """
     Validate that the task index is within range.
-    Returns True if valid, False otherwise.
+    Returns True if valid, False if no tasks, raises ValueError if out of range.
     """
     if len(tasks) == 0:
         print("No working currently.")

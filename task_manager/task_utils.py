@@ -8,7 +8,7 @@ from task_manager.validation import validate_task_name, validate_task_index
 def add_task(tasks, title, description, due_date):
     """
     Add a new task to the tasks list.
-    Each task is stored as a dictionary.
+    Each task is stored as a dictionary with title, description, due_date, completed.
     Returns the updated tasks list.
     """
     try:
@@ -67,7 +67,7 @@ def view_pending_tasks(tasks):
 
 def calculate_progress(tasks):
     """
-    Calculate and return the percentage of completed tasks.
+    Calculate and return the percentage of completed tasks as a float.
     Prints 'No working currently.' if no tasks exist.
     """
     if len(tasks) == 0:
@@ -77,7 +77,6 @@ def calculate_progress(tasks):
     completed = sum(1 for task in tasks if task["completed"])
     total = len(tasks)
     percentage = (completed / total) * 100
-    print(percentage)
     return percentage
 
 
